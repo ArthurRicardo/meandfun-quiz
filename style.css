@@ -1,0 +1,88 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #312e81 0%, #0f172a 40%, #020617 100%);
+}
+
+#starfield {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(250, 204, 21, 0.45), transparent),
+    radial-gradient(2px 2px at 80% 20%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 70% 75%, rgba(196, 181, 253, 0.55), transparent),
+    radial-gradient(2px 2px at 35% 65%, rgba(255, 255, 255, 0.45), transparent);
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+.glass-panel {
+  z-index: 1;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.65) 0%,
+    rgba(49, 46, 129, 0.38) 55%,
+    rgba(217, 119, 6, 0.2) 100%
+  );
+}
+
+.view {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+
+.view.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.option-btn {
+  width: 100%;
+  border: 1px solid rgba(196, 181, 253, 0.3);
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-align: left;
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.55);
+  transition: transform 240ms ease, background 240ms ease, border-color 240ms ease;
+}
+
+.option-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(79, 70, 229, 0.25);
+  border-color: rgba(251, 191, 36, 0.6);
+}
+
+.option-btn:active {
+  transform: scale(0.99);
+}
+
+@keyframes twinkle {
+  0% {
+    filter: brightness(0.9);
+    transform: scale(1);
+  }
+  100% {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-panel {
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寻找你的灵魂水晶</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: {
+              glow: "0 0 40px rgba(167, 139, 250, 0.35)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="min-h-screen text-slate-100 antialiased">
+    <div id="starfield" aria-hidden="true"></div>
+
+    <main class="mx-auto flex min-h-screen w-full max-w-xl items-center px-4 py-8">
+      <section
+        id="app"
+        class="glass-panel relative w-full overflow-hidden rounded-3xl border border-violet-200/20 p-6 shadow-glow md:p-8"
+      >
+        <div id="view-welcome" class="view active">
+          <p class="mb-3 text-sm tracking-[0.3em] text-amber-200/80">SOUL CRYSTAL QUIZ</p>
+          <h1 class="mb-4 text-3xl font-bold leading-tight md:text-4xl">寻找你的灵魂水晶</h1>
+          <p class="mb-8 text-sm leading-7 text-slate-200/85">
+            通过几道关于情绪、审美与内在需求的选择题，发现与你当下频率最契合的水晶能量。
+          </p>
+          <button
+            id="start-btn"
+            class="w-full rounded-xl bg-gradient-to-r from-violet-500 via-indigo-500 to-amber-400 px-5 py-3 text-base font-semibold text-white transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            开始测试
+          </button>
+        </div>
+
+        <div id="view-quiz" class="view hidden">
+          <div class="mb-5 flex items-center justify-between text-xs tracking-wider text-slate-300">
+            <span id="progress-text">第 1 / 6 题</span>
+            <span>单选模式</span>
+          </div>
+          <div class="mb-6 h-2 overflow-hidden rounded-full bg-slate-500/30">
+            <div id="progress-bar" class="h-full rounded-full bg-gradient-to-r from-violet-300 to-amber-300"></div>
+          </div>
+          <h2 id="question-title" class="mb-5 text-xl font-semibold leading-8 md:text-2xl"></h2>
+          <div id="options" class="space-y-3"></div>
+        </div>
+
+        <div id="view-result" class="view hidden">
+          <p class="mb-3 text-xs tracking-[0.3em] text-amber-200/80">YOUR CRYSTAL</p>
+          <div class="mb-5 overflow-hidden rounded-2xl border border-white/10">
+            <img
+              id="result-image"
+              src=""
+              alt=""
+              class="h-56 w-full object-cover"
+            />
+          </div>
+          <h2 id="result-name" class="mb-2 text-2xl font-bold md:text-3xl"></h2>
+          <p id="result-tags" class="mb-4 text-sm text-amber-200"></p>
+          <p id="result-desc" class="mb-8 text-sm leading-7 text-slate-200/90"></p>
+          <button
+            id="restart-btn"
+            class="w-full rounded-xl border border-violet-200/30 bg-slate-800/50 px-5 py-3 text-base font-semibold transition duration-300 hover:bg-slate-700/60"
+          >
+            重新测试
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
