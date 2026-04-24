@@ -1,58 +1,58 @@
-// 题库与选项权重配置：
-// 每个选项会给某些水晶增加分数，最后按总分最高匹配结果。
+// 題庫與選項權重設定：
+// 每個選項會為某些水晶加分，最後依總分最高對應結果。
 const QUESTIONS = [
   {
-    title: "当你感到疲惫时，你最想去哪里恢复能量？",
+    title: "當你感到疲憊時，你最想去哪裡恢復能量？",
     options: [
-      { text: "安静卧室里独处，听舒缓音乐", weights: { rose: 2, clear: 1 } },
-      { text: "海边散步，让风吹散思绪", weights: { aquamarine: 2, amethyst: 1 } },
+      { text: "安靜臥室裡獨處，聽舒緩音樂", weights: { rose: 2, clear: 1 } },
+      { text: "海邊散步，讓風吹散思緒", weights: { aquamarine: 2, amethyst: 1 } },
       { text: "山林夜空下冥想，感受宇宙呼吸", weights: { labradorite: 2, amethyst: 1 } },
-      { text: "人群之外的安全角落，先把自己保护好", weights: { obsidian: 2, clear: 1 } },
+      { text: "人群之外的安全角落，先把自己保護好", weights: { obsidian: 2, clear: 1 } },
     ],
   },
   {
-    title: "你更容易被哪种颜色吸引？",
+    title: "你更容易被哪種顏色吸引？",
     options: [
-      { text: "柔和粉与暖白", weights: { rose: 2 } },
-      { text: "纯净透明与银白光", weights: { clear: 2 } },
-      { text: "神秘紫与星云蓝", weights: { amethyst: 2, labradorite: 1 } },
-      { text: "深黑与金色反光", weights: { obsidian: 2, labradorite: 1 } },
+      { text: "柔和粉與暖白", weights: { rose: 2 } },
+      { text: "純淨透明與銀白光", weights: { clear: 2 } },
+      { text: "神秘紫與星雲藍", weights: { amethyst: 2, labradorite: 1 } },
+      { text: "深黑與金色反光", weights: { obsidian: 2, labradorite: 1 } },
     ],
   },
   {
-    title: "面对关系中的矛盾，你通常会？",
+    title: "面對關係中的矛盾，你通常會？",
     options: [
-      { text: "先共情对方，再表达自己的感受", weights: { rose: 2 } },
-      { text: "保持清晰，理性分析问题", weights: { clear: 2 } },
-      { text: "需要空间沉淀直觉，再做决定", weights: { amethyst: 2, labradorite: 1 } },
-      { text: "迅速立边界，避免被消耗", weights: { obsidian: 2 } },
+      { text: "先同理對方，再表達自己的感受", weights: { rose: 2 } },
+      { text: "保持清晰，理性分析問題", weights: { clear: 2 } },
+      { text: "需要空間沉澱直覺，再做決定", weights: { amethyst: 2, labradorite: 1 } },
+      { text: "迅速立邊界，避免被消耗", weights: { obsidian: 2 } },
     ],
   },
   {
-    title: "你当前最想强化的能量是？",
+    title: "你當前最想強化的能量是？",
     options: [
-      { text: "爱与疗愈，让内心柔软又有力量", weights: { rose: 2 } },
-      { text: "专注与净化，让目标更明确", weights: { clear: 2 } },
-      { text: "灵感与洞察，让答案自己浮现", weights: { amethyst: 2, labradorite: 1 } },
-      { text: "防护与稳定，屏蔽外界噪音", weights: { obsidian: 2 } },
+      { text: "愛與療癒，讓內心柔軟又有力量", weights: { rose: 2 } },
+      { text: "專注與淨化，讓目標更明確", weights: { clear: 2 } },
+      { text: "靈感與洞察，讓答案自己浮現", weights: { amethyst: 2, labradorite: 1 } },
+      { text: "防護與穩定，隔絕外界噪音", weights: { obsidian: 2 } },
     ],
   },
   {
-    title: "理想周末夜晚，你会选择？",
+    title: "理想週末夜晚，你會選擇？",
     options: [
-      { text: "烛光、香薰、手写日记", weights: { rose: 2, amethyst: 1 } },
-      { text: "整理空间，清空杂念", weights: { clear: 2 } },
-      { text: "看星空或神秘学内容，记录灵感", weights: { labradorite: 2, amethyst: 1 } },
-      { text: "关机断联，彻底休息", weights: { obsidian: 2, aquamarine: 1 } },
+      { text: "蠟燭、香氛、手寫日記", weights: { rose: 2, amethyst: 1 } },
+      { text: "整理空間，清空雜念", weights: { clear: 2 } },
+      { text: "看星空或神祕學內容，記錄靈感", weights: { labradorite: 2, amethyst: 1 } },
+      { text: "關機斷聯，徹底休息", weights: { obsidian: 2, aquamarine: 1 } },
     ],
   },
   {
-    title: "如果用一句话形容你内在的声音，它更像？",
+    title: "如果用一句話形容你內在的聲音，它更像？",
     options: [
-      { text: "“请温柔地拥抱自己。”", weights: { rose: 2 } },
-      { text: "“回到本质，一切会清晰。”", weights: { clear: 2 } },
-      { text: "“相信直觉，你正在被引导。”", weights: { amethyst: 2, labradorite: 1 } },
-      { text: "“守住边界，保护你的能量场。”", weights: { obsidian: 2 } },
+      { text: "「請溫柔地擁抱自己。」", weights: { rose: 2 } },
+      { text: "「回到本質，一切都會清晰。」", weights: { clear: 2 } },
+      { text: "「相信直覺，你正在被引導。」", weights: { amethyst: 2, labradorite: 1 } },
+      { text: "「守住邊界，保護你的能量場。」", weights: { obsidian: 2 } },
     ],
   },
 ];
@@ -60,43 +60,43 @@ const QUESTIONS = [
 const CRYSTALS = {
   rose: {
     name: "粉晶 Rose Quartz",
-    tags: ["疗愈", "爱", "温柔链接"],
-    desc: "你的灵魂像晨雾里的玫瑰光，敏感而真诚。粉晶提醒你，真正的强大来自允许自己被爱、也先学会自我安抚。在关系里，你拥有让伤口慢慢发光的能力。",
+    tags: ["療癒", "愛", "溫柔連結"],
+    desc: "你的靈魂像晨霧裡的玫瑰光，敏感而真誠。粉晶提醒你，真正的強大來自允許自己被愛、也先學會自我安撫。在關係裡，你擁有讓傷口慢慢發光的能力。",
     image:
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
   },
   clear: {
     name: "白水晶 Clear Quartz",
-    tags: ["净化", "专注", "放大能量"],
-    desc: "你像一束被打磨后的白光，清澈且坚定。白水晶对应你的理性与执行力，它帮助你过滤杂讯，让你回到目标本身，把分散的意念聚成行动。",
+    tags: ["淨化", "專注", "放大能量"],
+    desc: "你像一束被打磨後的白光，清澈且堅定。白水晶對應你的理性與執行力，它幫助你過濾雜訊，讓你回到目標本身，把分散的意念聚成行動。",
     image:
       "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=80",
   },
   amethyst: {
     name: "紫水晶 Amethyst",
-    tags: ["直觉", "平静", "精神成长"],
-    desc: "你的心灵天线一直在线，常能捕捉细腻而深层的讯号。紫水晶代表你的洞察与宁静，它让你在混沌中保持清明，听见内在真正的答案。",
+    tags: ["直覺", "平靜", "精神成長"],
+    desc: "你的心靈天線一直在線，常能捕捉細膩而深層的訊號。紫水晶代表你的洞察與寧靜，它讓你在混沌中保持清明，聽見內在真正的答案。",
     image:
       "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1200&q=80",
   },
   obsidian: {
     name: "黑曜石 Obsidian",
-    tags: ["避邪", "边界", "稳固防护"],
-    desc: "你拥有强大的自我保护本能，也擅长在风暴中保持脚下踏实。黑曜石与你共振，帮助你清理消耗性关系，守护能量边界，让安全感从内在升起。",
+    tags: ["避邪", "邊界", "穩固防護"],
+    desc: "你擁有強大的自我保護本能，也擅長在風暴中保持腳下踏實。黑曜石與你共振，幫助你清理消耗性關係，守護能量邊界，讓安全感從內在升起。",
     image:
       "https://images.unsplash.com/photo-1533158326339-7f3cf2404354?auto=format&fit=crop&w=1200&q=80",
   },
   aquamarine: {
-    name: "海蓝宝 Aquamarine",
-    tags: ["沟通", "流动", "释压"],
-    desc: "你像海潮一样，外表温和却拥有深远力量。海蓝宝支持你表达真实、释放压抑情绪，让语言与心意重新流动，带来轻盈而持久的平衡感。",
+    name: "海藍寶 Aquamarine",
+    tags: ["溝通", "流動", "釋壓"],
+    desc: "你像海潮一樣，外表溫和卻擁有深遠力量。海藍寶支持你表達真實、釋放壓抑情緒，讓語言與心意重新流動，帶來輕盈而持久的平衡感。",
     image:
       "https://images.unsplash.com/photo-1613145993486-6c9b053f59f0?auto=format&fit=crop&w=1200&q=80",
   },
   labradorite: {
-    name: "拉长石 Labradorite",
-    tags: ["觉察", "转化", "灵感"],
-    desc: "你的能量带着神秘的变彩，在不同阶段持续蜕变。拉长石象征你对未知的勇气，它会陪你穿越迷雾，把每次不确定都转化为更高维度的自我理解。",
+    name: "拉長石 Labradorite",
+    tags: ["覺察", "轉化", "靈感"],
+    desc: "你的能量帶著神祕的變彩，在不同階段持續蛻變。拉長石象徵你對未知的勇氣，它會陪你穿越迷霧，把每次不確定都轉化為更高維度的自我理解。",
     image:
       "https://images.unsplash.com/photo-1519730722595-a5ff788dea4d?auto=format&fit=crop&w=1200&q=80",
   },
@@ -149,7 +149,7 @@ function setActiveView(viewName) {
 function renderQuestion() {
   const question = QUESTIONS[state.currentIndex];
   questionTitle.textContent = question.title;
-  progressText.textContent = `第 ${state.currentIndex + 1} / ${QUESTIONS.length} 题`;
+  progressText.textContent = `第 ${state.currentIndex + 1} / ${QUESTIONS.length} 題`;
   progressBar.style.width = `${((state.currentIndex + 1) / QUESTIONS.length) * 100}%`;
 
   optionsContainer.innerHTML = "";
@@ -158,7 +158,7 @@ function renderQuestion() {
     button.className = "option-btn";
     button.textContent = option.text;
     button.addEventListener("click", () => {
-      // 记录当前选项对应的权重
+      // 記錄目前選項對應的權重
       Object.entries(option.weights).forEach(([crystalKey, score]) => {
         state.scores[crystalKey] += score;
       });
